@@ -104,14 +104,17 @@ while True:
         if gaze_ratio <= RIGHT_THRESHOLD:
             cv2.putText(frame, "RIGHT", (50, 100), font, 2, (0, 0, 255), 3)
             new_frame[:] = (0, 0, 255)
+            #data.append(gaze_ratio)
            
         elif LEFT_THRESHOLD < gaze_ratio <= CENTER_THRESHOLD_MAX and gaze_ratio >= CENTER_THRESHOLD_MIN:
             cv2.putText(frame, "CENTER", (50, 100), font, 2, (0, 255, 0), 3)
             new_frame[:] = (0, 255, 0)
+            #data.append(gaze_ratio)
            
         else:
             new_frame[:] = (255, 0, 0)
             cv2.putText(frame, "LEFT", (50, 100), font, 2, (255, 0, 0), 3)
+            #data.append(gaze_ratio)
             
 
     cv2.imshow("Frame", frame)
